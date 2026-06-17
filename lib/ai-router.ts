@@ -13,15 +13,28 @@
 import { GoogleGenAI, Type, Schema } from '@google/genai';
 import { NemotronClient, NemotronMessage } from './nemotron-client';
 
-// Initialize Gemini client
-const geminiAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Lazy initialization — these clients are NOT created at build time.
+// They only spin up when the first real API request comes in at runtime.
+let _geminiAI: GoogleGenAI | null = null;
+let _nemotronAI: NemotronClient | null = null;
 
-// Initialize the standalone Nemotron client
-const nemotronAI = new NemotronClient({
-  apiKey: process.env.OPENROUTER_API_KEY || 'unconfigured',
-  appName: 'LearnMandarinFree',
-  referer: 'https://learnmandarinfree.com'
-});
+function getGemini(): GoogleGenAI {
+  if (!_geminiAI) {
+    _geminiAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+  }
+  return _geminiAI;
+}
+
+function getNemotron(): NemotronClient {
+  if (!_nemotronAI) {
+    _nemotronAI = new NemotronClient({
+      apiKey: process.env.OPENROUTER_API_KEY || 'unconfigured',
+      appName: 'LearnMandarinFree',
+      referer: 'https://learnmandarinfree.com'
+    });
+  }
+  return _nemotronAI;
+}
 
 export type AIModel = 'gemini' | 'nemotron';
 
@@ -71,7 +84,7 @@ export async function routeAIRequest<T>(
   // Try the preferred model first
   if (preferredModel === 'nemotron' && isNemotronAvailable()) {
     try {
-      const data = await nemotronAI.generateJSON<T>(systemPrompt, userPrompt, {
+      const data = await getNemotron().generateJSON<T>(systemPrompt, userPrompt, {
         temperature,
         maxTokens,
       });
@@ -90,7 +103,7 @@ export async function routeAIRequest<T>(
     // If Gemini also fails and we haven't tried Nemotron yet, try it as last resort
     if (preferredModel !== 'nemotron' && isNemotronAvailable()) {
       try {
-        const data = await nemotronAI.generateJSON<T>(systemPrompt, userPrompt, {
+        const data = await getNemotron().generateJSON<T>(systemPrompt, userPrompt, {
           temperature,
           maxTokens,
         });
@@ -136,7 +149,7 @@ export async function routeConversation(
         })),
       ];
 
-      const result = await nemotronAI.chat(nemotronMessages, {
+      const result = await getNemotron().chat(nemotronMessages, {
         temperature,
         maxTokens,
         jsonMode: !!responseSchema,
@@ -165,7 +178,7 @@ export async function routeConversation(
     config.responseSchema = responseSchema;
   }
 
-  const response = await geminiAI.models.generateContent({
+  const response = await getGemini().models.generateContent({
     model: 'gemini-2.5-flash',
     contents,
     config,
@@ -183,7 +196,7 @@ async function callGemini<T>(
   responseSchema: Schema,
   temperature: number
 ): Promise<T> {
-  const response = await geminiAI.models.generateContent({
+  const response = await getGemini().models.generateContent({
     model: 'gemini-2.5-flash',
     contents: `${systemPrompt}\n\n${userPrompt}`,
     config: {
