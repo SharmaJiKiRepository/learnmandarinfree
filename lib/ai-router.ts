@@ -18,7 +18,7 @@ const geminiAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // Initialize the standalone Nemotron client
 const nemotronAI = new NemotronClient({
-  apiKey: process.env.OPENROUTER_API_KEY || '',
+  apiKey: process.env.OPENROUTER_API_KEY || 'unconfigured',
   appName: 'LearnMandarinFree',
   referer: 'https://learnmandarinfree.com'
 });
