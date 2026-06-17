@@ -64,7 +64,7 @@ export const readingPassages: ReadingPassage[] = [
   },
 ];
 
-export function getReadingsByLevel(level: 1 | 2 | 3 | 4): ReadingPassage[] {
+export function getReadingsByLevel(level: 1 | 2 | 3 | 4 | 5 | 6): ReadingPassage[] {
   return readingPassages.filter(r => r.hskLevel === level);
 }
 

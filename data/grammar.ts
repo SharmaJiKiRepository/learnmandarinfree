@@ -100,7 +100,7 @@ export const grammarPoints: GrammarPoint[] = [
   }
 ];
 
-export function getGrammarByLevel(level: 1 | 2 | 3 | 4): GrammarPoint[] {
+export function getGrammarByLevel(level: 1 | 2 | 3 | 4 | 5 | 6): GrammarPoint[] {
   return grammarPoints.filter(g => g.hskLevel === level);
 }
 

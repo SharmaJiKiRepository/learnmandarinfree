@@ -25,7 +25,7 @@ export default function QuizPage({ params }: { params: Promise<{ level: string; 
 
   useEffect(() => {
     params.then(({ level: l, unit: u }) => {
-      const lv = parseInt(l) as 1 | 2 | 3 | 4;
+      const lv = parseInt(l) as 1 | 2 | 3 | 4 | 5 | 6;
       const un = parseInt(u);
       setLevel(lv);
       setUnitNum(un);

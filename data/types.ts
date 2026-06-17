@@ -6,7 +6,7 @@ export interface HskWord {
   pinyin: string;        // nǐ hǎo
   meaning: string;       // hello
   partOfSpeech: string;  // greeting / verb / noun / adj etc.
-  hskLevel: 1 | 2 | 3 | 4;
+  hskLevel: 1 | 2 | 3 | 4 | 5 | 6 | 5 | 6;
   unit: number;
   unitName: string;
   exampleSentence?: {
@@ -19,14 +19,14 @@ export interface HskWord {
 export interface HskUnit {
   unit: number;
   name: string;
-  hskLevel: 1 | 2 | 3 | 4;
+  hskLevel: 1 | 2 | 3 | 4 | 5 | 6 | 5 | 6;
   description: string;
   words: HskWord[];
 }
 
 export interface GrammarPoint {
   id: string;
-  hskLevel: 1 | 2 | 3 | 4;
+  hskLevel: 1 | 2 | 3 | 4 | 5 | 6 | 5 | 6;
   unit: number;
   title: string;
   pattern: string;        // e.g. "Subject + 是 + Noun"
@@ -41,7 +41,7 @@ export interface GrammarPoint {
 
 export interface ReadingPassage {
   id: string;
-  hskLevel: 1 | 2 | 3 | 4;
+  hskLevel: 1 | 2 | 3 | 4 | 5 | 6 | 5 | 6;
   title: string;
   chinese: string;
   pinyin: string;
@@ -84,7 +84,7 @@ export interface Situation {
   id: string;          // e.g. "cafe-ordering"
   title: string;       // "Ordering at a Cafe"
   description: string; // "Learn how to order drinks and specify sizes."
-  level: 1 | 2 | 3 | 4;
+  level: 1 | 2 | 3 | 4 | 5 | 6 | 5 | 6;
   icon: string;        // emoji or icon name
   aiPrompt: string;    // The prompt given to Gemini to act as the character
   vocabulary?: { chinese: string; pinyin: string; english: string }[]; // Key words to pre-learn
@@ -105,7 +105,7 @@ export interface ImmersionVideo {
   youtubeId: string;   // the actual YouTube video ID
   title: string;
   description: string;
-  level: 1 | 2 | 3 | 4;
+  level: 1 | 2 | 3 | 4 | 5 | 6;
   thumbnailUrl: string;
   transcript: TranscriptLine[];
 }

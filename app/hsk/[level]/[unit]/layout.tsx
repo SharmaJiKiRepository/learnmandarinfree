@@ -7,7 +7,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Omit<Props, 'children'>) {
   const { level: levelStr, unit: unitStr } = await params;
-  const level = parseInt(levelStr) as 1 | 2 | 3 | 4;
+  const level = parseInt(levelStr) as 1 | 2 | 3 | 4 | 5 | 6;
   const unitNum = parseInt(unitStr);
   
   const unit = getUnit(level, unitNum);

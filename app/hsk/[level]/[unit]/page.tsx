@@ -18,7 +18,7 @@ export default function UnitPage({ params }: Props) {
   const [aiResult, setAiResult] = useState<Record<string, any>>({});
   const [loadingWord, setLoadingWord] = useState<string | null>(null);
 
-  const level = parseInt(levelStr) as 1 | 2 | 3 | 4;
+  const level = parseInt(levelStr) as 1 | 2 | 3 | 4 | 5 | 6;
   const unitNum = parseInt(unitStr);
 
   const unit = getUnit(level, unitNum);
