@@ -26,7 +26,7 @@ export default function Home() {
           Free, open-source platform combining spaced repetition, contextual reading, and roleplay.
         </p>
         <div className="hero-cta">
-          <Link href="/hsk1" className="btn btn-primary">
+          <Link href="/hsk/1" className="btn btn-primary">
             Start Learning Free →
           </Link>
           <Link href="/review" className="btn btn-secondary">
