@@ -9,7 +9,9 @@ import { grammarPoints, getGrammarByLevel } from './grammar';
 import { readingPassages, getReadingsByLevel } from './readings';
 import { situations, getSituationsByLevel, getSituationById } from './situations';
 import { immersionVideos, getImmersionVideoById } from './immersion';
-import type { HskWord, HskUnit, GrammarPoint, ReadingPassage, QuizQuestion, QuizType, Situation, DialogueLine, SentenceBuildingExercise, ImmersionVideo, TranscriptLine } from './types';
+import { survivalPhrases, getSurvivalCategories } from './survival';
+import { thematicTopics, getTopicById } from './thematic';
+import type { HskWord, HskUnit, GrammarPoint, ReadingPassage, QuizQuestion, QuizType, Situation, DialogueLine, SentenceBuildingExercise, ImmersionVideo, TranscriptLine, SurvivalPhrase, ThematicTopic } from './types';
 
 // All words by level
 export function getWordsByLevel(level: 1 | 2 | 3 | 4 | 5 | 6): HskWord[] {
@@ -69,7 +71,11 @@ export {
   getSituationsByLevel,
   getSituationById,
   immersionVideos,
-  getImmersionVideoById
+  getImmersionVideoById,
+  survivalPhrases,
+  getSurvivalCategories,
+  thematicTopics,
+  getTopicById
 };
 
-export type { HskWord, HskUnit, GrammarPoint, ReadingPassage, QuizQuestion, QuizType };
+export type { HskWord, HskUnit, GrammarPoint, ReadingPassage, QuizQuestion, QuizType, SurvivalPhrase, ThematicTopic };

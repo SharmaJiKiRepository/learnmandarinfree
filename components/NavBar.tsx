@@ -12,6 +12,8 @@ const NAV_ITEMS = [
   { href: '/learn', label: 'Flashcards', emoji: '🃏' },
   { href: '/chat', label: 'Chat', emoji: '💬' },
   { href: '/reading', label: 'Reading', emoji: '📖' },
+  { href: '/survival', label: 'Survival', emoji: '🧳' },
+  { href: '/topics', label: 'Topics', emoji: '🎯' },
   { href: '/song', label: 'Song', emoji: '🎵' },
   { href: '/situations', label: 'Situations', emoji: '🗣️' },
 ];

@@ -109,3 +109,19 @@ export interface ImmersionVideo {
   thumbnailUrl: string;
   transcript: TranscriptLine[];
 }
+
+export interface SurvivalPhrase {
+  id: string;
+  category: string;
+  chinese: string;
+  pinyin: string;
+  english: string;
+}
+
+export interface ThematicTopic {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+  words: HskWord[];
+}
