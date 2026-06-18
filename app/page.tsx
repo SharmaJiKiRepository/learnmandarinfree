@@ -5,7 +5,6 @@ import './home.css';
 export default function Home() {
   const features = [
     { href: '/hsk', emoji: '📚', title: 'HSK Courses', desc: 'Structured curriculum from HSK 1 to HSK 4 with 1,200 words.', color: 'var(--accent-primary)' },
-    { href: '/dashboard', emoji: '📊', title: 'Progress Dashboard', desc: 'Track streaks, accuracy, and see your growth over time.', color: 'var(--accent-blue)' },
     { href: '/review', emoji: '🔄', title: 'Spaced Repetition', desc: 'Smart review system that shows hard words more often.', color: 'var(--accent-teal)' },
     { href: '/situations', emoji: '🗣️', title: 'Situations & Roleplay', desc: 'Interactive daily life dialogues and AI roleplay.', color: 'var(--accent-gradient)' },
     { href: '/learn', emoji: '🃏', title: 'AI Flashcards', desc: 'Deep pronunciation guides and context for every word.', color: 'var(--accent-secondary)' },

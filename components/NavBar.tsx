@@ -7,7 +7,6 @@ import './NavBar.css';
 
 const NAV_ITEMS = [
   { href: '/hsk', label: 'HSK Courses', emoji: '📚' },
-  { href: '/dashboard', label: 'Dashboard', emoji: '📊' },
   { href: '/review', label: 'Review', emoji: '🔄' },
   { href: '/learn', label: 'Flashcards', emoji: '🃏' },
   { href: '/chat', label: 'Chat', emoji: '💬' },
