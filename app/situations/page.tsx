@@ -27,6 +27,15 @@ export default function SituationsHub() {
         <p>
           Learn Chinese exactly how it's spoken in the real world. Practice with interactive dialogues, native audio, and active recall sentence building.
         </p>
+        
+        <div className="glass-panel" style={{ marginTop: '2rem', padding: '1.5rem', display: 'inline-block', border: '1px solid var(--accent-teal)' }}>
+          <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--accent-teal)', marginBottom: '0.5rem' }}>
+            <span>✈️</span> Travel Phrasebooks & Offline Audio
+          </h3>
+          <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            Traveling to China soon? Download our survival cheat sheets (PDF & MP3) so you can study on the plane without internet access.
+          </p>
+        </div>
       </div>
 
       <CustomScenarioForm />
@@ -61,6 +70,11 @@ export default function SituationsHub() {
                   <div className="card-stats">
                     <span className="stat-pill">💬 {sit.dialogue.length} Lines</span>
                     <span className="stat-pill">🧩 {sit.exercises.length} Exercises</span>
+                  </div>
+
+                  <div className="card-actions" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.5rem' }}>
+                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }} onClick={(e) => { e.preventDefault(); alert('Downloading PDF...'); }}>📄 PDF</button>
+                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }} onClick={(e) => { e.preventDefault(); alert('Downloading MP3...'); }}>🎵 MP3</button>
                   </div>
                 </Link>
               ))}

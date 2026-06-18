@@ -4,9 +4,10 @@ import './home.css';
 
 export default function Home() {
   const features = [
-    { href: '/hsk', emoji: '📚', title: 'HSK Courses', desc: 'Structured curriculum from HSK 1 to HSK 4 with 1,200 words.', color: 'var(--accent-primary)' },
-    { href: '/review', emoji: '🔄', title: 'Spaced Repetition', desc: 'Smart review system that shows hard words more often.', color: 'var(--accent-teal)' },
-    { href: '/situations', emoji: '🗣️', title: 'Situations & Roleplay', desc: 'Interactive daily life dialogues and AI roleplay.', color: 'var(--accent-gradient)' },
+    { href: '/pinyin', emoji: '🗣️', title: 'Pinyin & Tones', desc: 'Master pronunciation fundamentals with interactive tones.', color: 'var(--accent-primary)' },
+    { href: '/hsk', emoji: '📚', title: 'HSK Courses', desc: 'Structured curriculum from HSK 1 to HSK 4 with 1,200 words.', color: 'var(--accent-teal)' },
+    { href: '/review', emoji: '🔄', title: 'Spaced Repetition', desc: 'Smart review system that shows hard words more often.', color: 'var(--accent-gradient)' },
+    { href: '/situations', emoji: '🎭', title: 'Situations & Roleplay', desc: 'Interactive daily life dialogues and AI roleplay.', color: 'var(--accent-secondary)' },
     { href: '/learn', emoji: '🃏', title: 'AI Flashcards', desc: 'Deep pronunciation guides and context for every word.', color: 'var(--accent-secondary)' },
     { href: '/reading', emoji: '📖', title: 'Reading Practice', desc: 'Graded passages with toggleable pinyin and translation.', color: 'var(--success)' },
     { href: '/chat', emoji: '💬', title: 'AI Chat', desc: 'Practice conversation with an AI tutor who remembers you.', color: 'var(--accent-purple)' },
@@ -31,6 +32,23 @@ export default function Home() {
           <Link href="/review" className="btn btn-secondary">
             Review Vocab
           </Link>
+        </div>
+      </section>
+
+      {/* Daily Challenge Widget (Mondly inspired) */}
+      <section className="daily-challenge max-w-container" style={{ marginBottom: '4rem', display: 'flex', justifyContent: 'center' }}>
+        <div className="glass-panel" style={{ width: '100%', maxWidth: '600px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem', border: '2px solid rgba(250, 204, 21, 0.3)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h3 style={{ fontSize: '1.3rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>🎯</span> Daily 5-Minute Challenge
+            </h3>
+            <span style={{ fontWeight: 'bold', color: 'var(--warning)' }}>0 / 5 mins</span>
+          </div>
+          <div className="progress-bar" style={{ height: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+            <div className="progress-bar-fill" style={{ width: '10%', height: '100%', background: 'var(--warning)' }}></div>
+          </div>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: '0' }}>Consistency is key! Spend 5 minutes today to keep your streak alive.</p>
+          <Link href="/hsk/1" className="btn btn-primary" style={{ background: 'var(--warning)', color: 'black', marginTop: '0.5rem', alignSelf: 'flex-start' }}>Complete Daily Goal</Link>
         </div>
       </section>
 

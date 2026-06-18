@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     title: 'Learn Chinese Free Online | 100% Free AI Mandarin Tutor',
     description: 'Master Mandarin with our immersive AI tutor, sentence builder, and spaced repetition system.',
   },
+  verification: {
+    google: 'FOU-XetIYEkVxBsD63xIFmkkTQml4YECC6dsZ90iSuA',
+  },
 };
 
 export default function RootLayout({

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import './NavBar.css';
 
 const NAV_ITEMS = [
+  { href: '/pinyin', label: 'Pinyin', emoji: '🗣️' },
   { href: '/hsk', label: 'HSK Courses', emoji: '📚' },
   { href: '/review', label: 'Review', emoji: '🔄' },
   { href: '/learn', label: 'Flashcards', emoji: '🃏' },
@@ -41,6 +42,13 @@ export default function NavBar() {
             </Link>
           ))}
         </nav>
+        
+        <div className="navbar-right-tools" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: 'auto', marginRight: '1rem' }}>
+          <div className="streak-counter" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255, 107, 0, 0.1)', padding: '0.4rem 0.8rem', borderRadius: 'var(--radius-full)', color: '#ff6b00', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '1.2rem' }}>🔥</span> 3
+          </div>
+        </div>
+
         <button
           className="hamburger"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

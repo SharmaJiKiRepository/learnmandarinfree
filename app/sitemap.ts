@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/dashboard',
     '/review',
+    '/pinyin',
     '/hsk',
     '/hsk/1',
     '/hsk/2',
