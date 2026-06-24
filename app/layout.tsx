@@ -3,7 +3,6 @@ import NavBar from "@/components/NavBar";
 import "./globals.css";
 
 import AnimatedBackground from "@/components/background/AnimatedBackground";
-import SupportBanner from "@/components/SupportBanner";
 
 export const metadata: Metadata = {
   title: "Learn Chinese Free Online | 100% Free AI Mandarin Tutor",
@@ -63,7 +62,6 @@ export default function RootLayout({
         <main className="max-w-container" style={{ paddingTop: '6rem' }}>
           {children}
         </main>
-        <SupportBanner />
       </body>
     </html>
   );

@@ -8,13 +8,13 @@ import './NavBar.css';
 const NAV_ITEMS = [
   { href: '/pinyin', label: 'Pinyin', emoji: '🗣️' },
   { href: '/hsk', label: 'HSK Courses', emoji: '📚' },
+  { href: '/tutor', label: 'AI Tutor', emoji: '🧠' },
   { href: '/review', label: 'Review', emoji: '🔄' },
   { href: '/learn', label: 'Flashcards', emoji: '🃏' },
-  { href: '/chat', label: 'Chat', emoji: '💬' },
+  { href: '/essay-grader', label: 'Essay Grader', emoji: '📝' },
   { href: '/reading', label: 'Reading', emoji: '📖' },
   { href: '/survival', label: 'Survival', emoji: '🧳' },
   { href: '/topics', label: 'Topics', emoji: '🎯' },
-  { href: '/song', label: 'Song', emoji: '🎵' },
   { href: '/situations', label: 'Situations', emoji: '🗣️' },
 ];
 

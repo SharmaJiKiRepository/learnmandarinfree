@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { routeConversation } from '@/lib/ai-router';
+import { generateNemotronResponse } from '@/lib/nemotron';
 
 export async function POST(req: Request) {
     try {
@@ -10,29 +10,57 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Messages array is required' }, { status: 400 });
         }
 
-        const systemPrompt = `You are a personalized, highly intelligent Chinese language tutor.
+        const systemPrompt = `You are a personalized, highly intelligent Chinese language tutor powered by NVIDIA Nemotron 3 Ultra.
 Your goal is to help the user master Mandarin Chinese.
-Be encouraging, adapt to their level, and provide constructive feedback.
+Be encouraging, adapt to their level, and provide incredibly constructive feedback.
 
 User Context:
 ${JSON.stringify(userContext || { level: 'Beginner' }, null, 2)}
 
-When you respond, occasionally correct their mistakes (if they type in Chinese), suggest better ways to phrase things, and ask follow-up questions to keep them practicing.
-You have access to their progress, so reference their weak words or recent lessons if relevant.
-Keep responses concise but highly educational.`;
+Instructions:
+1. When you respond, provide hyper-detailed grammatical breakdowns if they make a mistake.
+2. If they type in Chinese, correct any unnatural phrasing and explain the cultural context behind native alternatives.
+3. Use your deep reasoning capabilities to deduce the exact rule they are misunderstanding, and explain it simply.
+4. Always ask a follow-up question to keep them practicing.
+Keep responses highly educational, but don't overwhelm beginners. Use Pinyin where appropriate.`;
 
-        // The AI Tutor uses conversation mode and heavily prefers Nemotron
-        // because of the massive context window and strong reasoning.
-        const result = await routeConversation(
-            messages,
-            systemPrompt,
-            null, // No strict JSON schema needed for raw chat
-            { preferredModel: 'nemotron', temperature: 0.7, maxTokens: 1024 }
-        );
+        // Nemotron 3 Ultra requires the system prompt as the first message
+        const fullMessages = [
+            { role: 'system', content: systemPrompt } as const,
+            ...messages.map((m: any) => ({ role: m.role as 'user' | 'assistant', content: m.content }))
+        ];
+
+        let responseContent;
+        let modelUsed = 'nemotron';
+
+        try {
+            responseContent = await generateNemotronResponse(
+                fullMessages,
+                { enable_thinking: true, reasoning_budget: 1024, temperature: 0.7, max_tokens: 2048 }
+            );
+        } catch (nemotronError) {
+            console.warn('Nemotron failed, falling back to Gemini:', nemotronError);
+            const { generateWithGeminiFallback } = await import('@/lib/gemini-fallback');
+            
+            const contents = messages.map((msg: any) => ({
+                role: msg.role === 'assistant' ? 'model' : 'user',
+                parts: [{ text: msg.content }],
+            }));
+            
+            responseContent = await generateWithGeminiFallback(
+                contents,
+                systemPrompt,
+                undefined,
+                0.7,
+                1024
+            );
+            
+            modelUsed = 'gemini';
+        }
 
         return NextResponse.json({
-            response: result.content,
-            _modelUsed: result.model
+            response: responseContent,
+            _modelUsed: modelUsed
         });
 
     } catch (error: any) {
