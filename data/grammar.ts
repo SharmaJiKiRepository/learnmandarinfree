@@ -97,6 +97,123 @@ export const grammarPoints: GrammarPoint[] = [
     quizzes: [
       { id: 'g4-07-q1', type: 'word-order', prompt: 'Translate: "I know him, but he doesn\'t know me."', scrambled: [{chinese: '却', pinyin: 'què'}, {chinese: '认识', pinyin: 'rèn shi'}, {chinese: '他', pinyin: 'tā'}, {chinese: '我', pinyin: 'wǒ'}, {chinese: '不', pinyin: 'bù'}, {chinese: '他 ', pinyin: 'tā'}, {chinese: '我 ', pinyin: 'wǒ'}, {chinese: '认识 ', pinyin: 'rèn shi'}], correctOrder: ['我', '认识', '他', '他 ', '却', '不', '认识 ', '我 '], explanation: '却 must come after the subject (他).' }
     ]
+  },
+
+  // --- NEW Grammar Points ---
+
+  // HSK 1: Measure words
+  {
+    id: 'g1-08', hskLevel: 1, unit: 5, title: 'Measure words with 个 (gè)', pattern: 'Number + 个 + Noun', explanation: 'Chinese requires a measure word between a number and a noun. 个 is the most common and universal measure word, used when no specific measure word is known.',
+    examples: [
+      { chinese: '三个人', pinyin: 'sān gè rén', meaning: 'three people' },
+      { chinese: '一个苹果', pinyin: 'yī gè píng guǒ', meaning: 'one apple' },
+      { chinese: '几个学生？', pinyin: 'jǐ gè xué shēng?', meaning: 'How many students?' }
+    ],
+    quizzes: [
+      { id: 'g1-08-q1', type: 'fill-blank', prompt: '我有两___朋友。 (I have two friends.)', correctAnswer: '个', explanation: '个 is the measure word used between the number (两) and the noun (朋友).' },
+      { id: 'g1-08-q2', type: 'multiple-choice', prompt: 'Which is correct for "five books"?', options: [{ chinese: '五个书', pinyin: 'wǔ gè shū' }, { chinese: '五本书', pinyin: 'wǔ běn shū' }], correctAnswer: '五本书', explanation: 'Books use the specific measure word 本 (běn), not 个.' }
+    ]
+  },
+
+  // HSK 2: Time duration with 了
+  {
+    id: 'g2-05', hskLevel: 2, unit: 8, title: 'Time duration with 了 (le)', pattern: 'Verb + 了 + Duration', explanation: 'To express how long an action has been going on, place the time duration after the verb + 了.',
+    examples: [
+      { chinese: '我学了两年中文。', pinyin: 'wǒ xué le liǎng nián zhōng wén.', meaning: 'I have studied Chinese for two years.' },
+      { chinese: '他等了半个小时。', pinyin: 'tā děng le bàn gè xiǎo shí.', meaning: 'He waited for half an hour.' }
+    ],
+    quizzes: [
+      { id: 'g2-05-q1', type: 'word-order', prompt: 'Translate: "I slept for 8 hours."', scrambled: [{ chinese: '我', pinyin: 'wǒ' }, { chinese: '了', pinyin: 'le' }, { chinese: '八个小时', pinyin: 'bā gè xiǎo shí' }, { chinese: '睡', pinyin: 'shuì' }], correctOrder: ['我', '睡', '了', '八个小时'], explanation: 'Verb (睡) + 了 + Duration (八个小时).' }
+    ]
+  },
+  // HSK 2: 虽然...但是...
+  {
+    id: 'g2-06', hskLevel: 2, unit: 12, title: 'Although...but: 虽然...但是...', pattern: '虽然 + A, 但是 + B', explanation: '虽然...但是... means "although...but...". Unlike English, Chinese uses both "although" AND "but" together.',
+    examples: [
+      { chinese: '虽然很难，但是我不放弃。', pinyin: 'suī rán hěn nán, dàn shì wǒ bù fàng qì.', meaning: "Although it's hard, I won't give up." },
+      { chinese: '虽然他很年轻，但是很有经验。', pinyin: 'suī rán tā hěn nián qīng, dàn shì hěn yǒu jīng yàn.', meaning: 'Although he is young, he has a lot of experience.' }
+    ],
+    quizzes: [
+      { id: 'g2-06-q1', type: 'fill-blank', prompt: '___天气很冷，但是我还想出去。 (Although the weather is cold, I still want to go out.)', correctAnswer: '虽然', explanation: '虽然 (although) pairs with 但是 (but).' }
+    ]
+  },
+
+  // HSK 3: Resultative complements
+  {
+    id: 'g3-04', hskLevel: 3, unit: 10, title: 'Resultative complements', pattern: 'Verb + 到/见/完/好/懂', explanation: 'A resultative complement is placed directly after a verb to indicate the result of an action. Common ones include: 到 (achieve), 见 (perceive), 完 (finish), 好 (done well), 懂 (understand).',
+    examples: [
+      { chinese: '我听懂了。', pinyin: 'wǒ tīng dǒng le.', meaning: 'I understood (by listening).' },
+      { chinese: '作业做完了。', pinyin: 'zuò yè zuò wán le.', meaning: 'The homework is finished.' },
+      { chinese: '你看见那只猫了吗？', pinyin: 'nǐ kàn jiàn nà zhī māo le ma?', meaning: 'Did you see that cat?' }
+    ],
+    quizzes: [
+      { id: 'g3-04-q1', type: 'multiple-choice', prompt: 'How do you say "I finished reading the book"?', options: [{ chinese: '我看了书完。', pinyin: 'wǒ kàn le shū wán.' }, { chinese: '我看完了书。', pinyin: 'wǒ kàn wán le shū.' }], correctAnswer: '我看完了书。', explanation: 'The complement (完) goes directly after the verb (看), not after the object.' }
+    ]
+  },
+  // HSK 3: 一边...一边...
+  {
+    id: 'g3-05', hskLevel: 3, unit: 12, title: 'Doing two things at once: 一边...一边...', pattern: '一边 + Verb₁ + 一边 + Verb₂', explanation: '一边...一边... means doing two actions simultaneously.',
+    examples: [
+      { chinese: '她一边听音乐一边跑步。', pinyin: 'tā yī biān tīng yīn yuè yī biān pǎo bù.', meaning: 'She listens to music while jogging.' },
+      { chinese: '不要一边吃饭一边看手机。', pinyin: 'bù yào yī biān chī fàn yī biān kàn shǒu jī.', meaning: "Don't look at your phone while eating." }
+    ],
+    quizzes: [
+      { id: 'g3-05-q1', type: 'word-order', prompt: 'Translate: "He walks while talking on the phone."', scrambled: [{ chinese: '他', pinyin: 'tā' }, { chinese: '一边', pinyin: 'yī biān' }, { chinese: '走路', pinyin: 'zǒu lù' }, { chinese: '一边', pinyin: 'yī biān' }, { chinese: '打电话', pinyin: 'dǎ diàn huà' }], correctOrder: ['他', '一边', '走路', '一边', '打电话'], explanation: 'Subject + 一边 + V1 + 一边 + V2.' }
+    ]
+  },
+
+  // HSK 5 Grammar (NEW!)
+  {
+    id: 'g5-01', hskLevel: 5, unit: 1, title: 'It is said that: 据说', pattern: '据说 + Statement', explanation: '据说 means "it is said that" or "reportedly" and is used to report information you heard from others without confirming its truth.',
+    examples: [
+      { chinese: '据说他已经辞职了。', pinyin: 'jù shuō tā yǐ jīng cí zhí le.', meaning: 'It is said that he has already resigned.' },
+      { chinese: '据说这家餐厅的菜很好吃。', pinyin: 'jù shuō zhè jiā cān tīng de cài hěn hǎo chī.', meaning: "It is said that this restaurant's food is delicious." }
+    ],
+    quizzes: [
+      { id: 'g5-01-q1', type: 'fill-blank', prompt: '___明天要下雪。(It is said it will snow tomorrow.)', correctAnswer: '据说', explanation: '据说 is placed at the beginning to indicate hearsay.' }
+    ]
+  },
+  {
+    id: 'g5-02', hskLevel: 5, unit: 5, title: 'No matter what: 无论...都...', pattern: '无论 + Question word + 都 + Result', explanation: '无论...都... means "no matter what/how/where, always..." and expresses that the result is the same regardless of the condition.',
+    examples: [
+      { chinese: '无论多难，我都不会放弃。', pinyin: 'wú lùn duō nán, wǒ dōu bù huì fàng qì.', meaning: 'No matter how difficult, I will never give up.' },
+      { chinese: '无论你去哪儿，我都跟着你。', pinyin: 'wú lùn nǐ qù nǎr, wǒ dōu gēn zhe nǐ.', meaning: 'No matter where you go, I will follow you.' }
+    ],
+    quizzes: [
+      { id: 'g5-02-q1', type: 'multiple-choice', prompt: 'How do you say "No matter who comes, I will be ready"?', options: [{ chinese: '无论谁来，我都准备好了。', pinyin: 'wú lùn shéi lái, wǒ dōu zhǔn bèi hǎo le.' }, { chinese: '谁来无论，我准备好都了。', pinyin: 'shéi lái wú lùn, wǒ zhǔn bèi hǎo dōu le.' }], correctAnswer: '无论谁来，我都准备好了。', explanation: '无论 comes before the condition, 都 comes in the result clause.' }
+    ]
+  },
+  {
+    id: 'g5-03', hskLevel: 5, unit: 10, title: 'As long as: 只要...就...', pattern: '只要 + Condition, 就 + Result', explanation: '只要...就... means "as long as..., then..." — expressing that a single condition is sufficient for the result.',
+    examples: [
+      { chinese: '只要你努力，就能成功。', pinyin: 'zhǐ yào nǐ nǔ lì, jiù néng chéng gōng.', meaning: 'As long as you work hard, you can succeed.' },
+      { chinese: '只要不下雨，我们就去爬山。', pinyin: 'zhǐ yào bù xià yǔ, wǒ men jiù qù pá shān.', meaning: "As long as it doesn't rain, we'll go hiking." }
+    ],
+    quizzes: [
+      { id: 'g5-03-q1', type: 'fill-blank', prompt: '___你来，我___高兴。(As long as you come, I will be happy.)', correctAnswer: '只要', explanation: '只要 introduces the condition, 就 introduces the result.' }
+    ]
+  },
+
+  // HSK 6 Grammar (NEW!)
+  {
+    id: 'g6-01', hskLevel: 6, unit: 1, title: 'Not to mention: 何况', pattern: 'A situation, 何况 + B (even more so)', explanation: '何况 means "not to mention" or "let alone" and is used to strengthen an argument by introducing an even stronger case.',
+    examples: [
+      { chinese: '大人都觉得累，何况是孩子。', pinyin: 'dà rén dōu jué de lèi, hé kuàng shì hái zi.', meaning: 'Even adults feel tired, let alone children.' },
+      { chinese: '这道题连老师都不会做，何况学生呢？', pinyin: 'zhè dào tí lián lǎo shī dōu bù huì zuò, hé kuàng xué shēng ne?', meaning: "Even the teacher can't solve this problem, let alone the students." }
+    ],
+    quizzes: [
+      { id: 'g6-01-q1', type: 'multiple-choice', prompt: 'Which sentence correctly uses 何况?', options: [{ chinese: '这么简单的事我都做不好，何况那么难的事。', pinyin: 'zhè me jiǎn dān de shì wǒ dōu zuò bù hǎo, hé kuàng nà me nán de shì.' }, { chinese: '何况我做不好，这么简单的事。', pinyin: 'hé kuàng wǒ zuò bù hǎo, zhè me jiǎn dān de shì.' }], correctAnswer: '这么简单的事我都做不好，何况那么难的事。', explanation: '何况 introduces the stronger/more extreme case after stating the weaker case.' }
+    ]
+  },
+  {
+    id: 'g6-02', hskLevel: 6, unit: 5, title: 'Might as well: 不妨', pattern: 'Subject + 不妨 + Verb', explanation: '不妨 is a formal way to suggest "might as well" or "there is no harm in trying." It softens a suggestion.',
+    examples: [
+      { chinese: '你不妨试试看。', pinyin: 'nǐ bù fáng shì shì kàn.', meaning: 'You might as well give it a try.' },
+      { chinese: '如果有时间，不妨去那个博物馆看看。', pinyin: 'rú guǒ yǒu shí jiān, bù fáng qù nà ge bó wù guǎn kàn kàn.', meaning: 'If you have time, you might as well visit that museum.' }
+    ],
+    quizzes: [
+      { id: 'g6-02-q1', type: 'fill-blank', prompt: '你___换个方法试试。(You might as well try a different approach.)', correctAnswer: '不妨', explanation: '不妨 is placed before the verb to soften a suggestion.' }
+    ]
   }
 ];
 

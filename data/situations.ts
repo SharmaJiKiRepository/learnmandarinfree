@@ -1181,6 +1181,183 @@ export const situations: Situation[] = [
         ]
       }
     ]
+  },
+  
+  // --- NEW SITUATIONS ADDED FROM PLAN ---
+  {
+    id: 'first-day-school',
+    title: 'First Day at School',
+    description: 'Introduce yourself to your new classmates and teacher on your first day of school.',
+    level: 1,
+    icon: '🎒',
+    aiPrompt: 'You are my new classmate. Greet me, ask my name, and ask if I like our school. Keep vocabulary to HSK 1.',
+    vocabulary: [
+      { chinese: '同学', pinyin: 'tóng xué', english: 'classmate' },
+      { chinese: '名字', pinyin: 'míng zì', english: 'name' },
+      { chinese: '喜欢', pinyin: 'xǐ huan', english: 'to like' },
+      { chinese: '学校', pinyin: 'xué xiào', english: 'school' }
+    ],
+    dialogue: [
+      { character: 'Classmate', chinese: '你好！你是新同学吗？', pinyin: 'Nǐ hǎo! Nǐ shì xīn tóngxué ma?', english: 'Hello! Are you a new classmate?', hindiPronunciation: 'नी हाओ! नी शी शिन तोंगशुए मा?' },
+      { character: 'You', chinese: '你好！对，我是新来的。', pinyin: 'Nǐ hǎo! Duì, wǒ shì xīn lái de.', english: 'Hello! Yes, I am new here.', hindiPronunciation: 'नी हाओ! दुई, वो शी शिन लाई दे.' },
+      { character: 'Classmate', chinese: '我叫小王。你叫什么名字？', pinyin: 'Wǒ jiào Xiǎo Wáng. Nǐ jiào shénme míngzi?', english: 'My name is Xiao Wang. What is your name?', hindiPronunciation: 'वो जियाओ शियाओ वांग. नी जियाओ शेनमे मिंगजी?' },
+      { character: 'You', chinese: '我叫大卫。认识你很高兴。', pinyin: 'Wǒ jiào Dàwèi. Rènshi nǐ hěn gāoxìng.', english: 'My name is David. Nice to meet you.', hindiPronunciation: 'वो जियाओ दावेई. रेनशी नी हन गाओशिंग.' },
+      { character: 'Classmate', chinese: '你喜欢我们的学校吗？', pinyin: 'Nǐ xǐhuan wǒmen de xuéxiào ma?', english: 'Do you like our school?', hindiPronunciation: 'नी शिहुआँ वोमेन दे शुएशियाओ मा?' },
+      { character: 'You', chinese: '我很喜欢。学校很大。', pinyin: 'Wǒ hěn xǐhuan. Xuéxiào hěn dà.', english: 'I like it very much. The school is very big.', hindiPronunciation: 'वो हन शिहुआँ. शुएशियाओ हन दा.' }
+    ],
+    exercises: [
+      {
+        type: 'sentence_building',
+        english: 'Are you a new classmate?',
+        correctChinese: '你是新同学吗',
+        blocks: [
+          { chinese: '同学', pinyin: 'tóngxué' },
+          { chinese: '吗', pinyin: 'ma' },
+          { chinese: '新', pinyin: 'xīn' },
+          { chinese: '你是', pinyin: 'nǐ shì' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'doctor-symptoms',
+    title: 'Describing Symptoms to a Doctor',
+    description: 'Explain your symptoms in more detail to a doctor.',
+    level: 2,
+    icon: '🩺',
+    aiPrompt: 'You are a doctor. Ask me how long I have been sick and if I have taken any medicine. Keep vocabulary to HSK 2.',
+    vocabulary: [
+      { chinese: '医生', pinyin: 'yī shēng', english: 'doctor' },
+      { chinese: '发烧', pinyin: 'fā shāo', english: 'fever' },
+      { chinese: '药', pinyin: 'yào', english: 'medicine' },
+      { chinese: '休息', pinyin: 'xiū xi', english: 'to rest' }
+    ],
+    dialogue: [
+      { character: 'Doctor', chinese: '你哪儿不舒服？', pinyin: 'Nǐ nǎr bù shūfu?', english: 'Where do you feel unwell?', hindiPronunciation: 'नी नार बू शूफ़ू?' },
+      { character: 'You', chinese: '我有点儿发烧，头也很疼。', pinyin: 'Wǒ yǒudiǎnr fāshāo, tóu yě hěn téng.', english: 'I have a bit of a fever, and my head also hurts a lot.', hindiPronunciation: 'वो योउदियान फाशाओ, तोउ ये हन तेंग.' },
+      { character: 'Doctor', chinese: '你病了几天了？吃药了吗？', pinyin: 'Nǐ bìng le jǐ tiān le? Chī yào le ma?', english: 'How many days have you been sick? Have you taken medicine?', hindiPronunciation: 'नी बिंग ले जी तियान ले? ची याओ ले मा?' },
+      { character: 'You', chinese: '两天了。我还没吃药。', pinyin: 'Liǎng tiān le. Wǒ hái méi chī yào.', english: 'Two days. I haven\'t taken medicine yet.', hindiPronunciation: 'लियांग तियान ले. वो हाई मेई ची याओ.' },
+      { character: 'Doctor', chinese: '这是你的药。多喝水，多休息。', pinyin: 'Zhè shì nǐ de yào. Duō hē shuǐ, duō xiūxi.', english: 'Here is your medicine. Drink more water and rest more.', hindiPronunciation: 'झे शी नी दे याओ. दुओ हे शुई, दुओ शिउशी.' },
+      { character: 'You', chinese: '谢谢医生。', pinyin: 'Xièxie yīshēng.', english: 'Thank you, doctor.', hindiPronunciation: 'शिएशिए यीशेंग.' }
+    ],
+    exercises: [
+      {
+        type: 'sentence_building',
+        english: 'How many days have you been sick?',
+        correctChinese: '你病了几天了',
+        blocks: [
+          { chinese: '几天了', pinyin: 'jǐ tiān le' },
+          { chinese: '病了', pinyin: 'bìng le' },
+          { chinese: '你', pinyin: 'nǐ' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'planning-trip',
+    title: 'Planning a Trip',
+    description: 'Discuss booking flights and hotels with a friend for an upcoming trip.',
+    level: 3,
+    icon: '✈️',
+    aiPrompt: 'You are my friend. We are planning a trip to Beijing. Ask me when we should buy the plane tickets and if I have booked a hotel. Use HSK 3 vocabulary.',
+    vocabulary: [
+      { chinese: '打算', pinyin: 'dǎ suàn', english: 'to plan' },
+      { chinese: '机票', pinyin: 'jī piào', english: 'airplane ticket' },
+      { chinese: '宾馆', pinyin: 'bīn guǎn', english: 'hotel' },
+      { chinese: '准备', pinyin: 'zhǔn bèi', english: 'to prepare' }
+    ],
+    dialogue: [
+      { character: 'Friend', chinese: '下个月我们去北京玩，你打算什么时候买机票？', pinyin: 'Xià gè yuè wǒmen qù Běijīng wán, nǐ dǎsuàn shénme shíhou mǎi jīpiào?', english: 'We are going to Beijing next month, when do you plan to buy the plane tickets?', hindiPronunciation: 'शिया गे युए वोमेन छू बेइजिंग वान, नी दासुआन शेनमे शीहोउ माई जीफियाओ?' },
+      { character: 'You', chinese: '我已经买好了。往返机票一共两千块。', pinyin: 'Wǒ yǐjīng mǎi hǎo le. Wǎngfǎn jīpiào yígòng liǎngqiān kuài.', english: 'I have already bought them. The round-trip tickets were 2000 yuan in total.', hindiPronunciation: 'वो यीजिंग माई हाओ ले. वांगफान जीफियाओ यीगोंग लियांगचियान कुआई.' },
+      { character: 'Friend', chinese: '太好了。那我们住哪儿？宾馆你订了吗？', pinyin: 'Tài hǎo le. Nà wǒmen zhù nǎr? Bīnguǎn nǐ dìng le ma?', english: 'Great. Where are we staying then? Have you booked a hotel?', hindiPronunciation: 'ताई हाओ ले. ना वोमेन झू नार? बिनगुआन नी डिंग ले मा?' },
+      { character: 'You', chinese: '还没订。你想住市中心还是景点附近？', pinyin: 'Hái méi dìng. Nǐ xiǎng zhù shì zhōngxīn háishì jǐngdiǎn fùjìn?', english: 'Not yet. Do you want to stay in the city center or near the tourist attractions?', hindiPronunciation: 'हाई मेई डिंग. नी शियांग झू शी जोंगशिन हाईशी जिंगदियान फूजिन?' },
+      { character: 'Friend', chinese: '住市中心吧，交通比较方便。', pinyin: 'Zhù shì zhōngxīn ba, jiāotōng bǐjiào fāngbiàn.', english: 'Let\'s stay in the city center, the transportation is more convenient.', hindiPronunciation: 'झू शी जोंगशिन बा, जियाओतोंग बिजियाओ फांगबियन.' },
+      { character: 'You', chinese: '好，那我今晚就准备订宾馆。', pinyin: 'Hǎo, nà wǒ jīn wǎn jiù zhǔnbèi dìng bīnguǎn.', english: 'Okay, then I will prepare to book the hotel tonight.', hindiPronunciation: 'हाओ, ना वो जिन वान जिउ झुनबेई डिंग बिनगुआन.' }
+    ],
+    exercises: [
+      {
+        type: 'sentence_building',
+        english: 'When do you plan to buy the plane tickets?',
+        correctChinese: '你打算什么时候买机票',
+        blocks: [
+          { chinese: '买机票', pinyin: 'mǎi jīpiào' },
+          { chinese: '打算', pinyin: 'dǎsuàn' },
+          { chinese: '什么时候', pinyin: 'shénme shíhou' },
+          { chinese: '你', pinyin: 'nǐ' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'job-negotiation',
+    title: 'Job Offer Negotiation',
+    description: 'Negotiate salary and benefits after receiving a job offer.',
+    level: 5,
+    icon: '💼',
+    aiPrompt: 'You are an HR manager. You have offered me a job. I want to negotiate my salary. Respond professionally using HSK 5 vocabulary.',
+    vocabulary: [
+      { chinese: '待遇', pinyin: 'dài yù', english: 'treatment/salary and benefits' },
+      { chinese: '考虑', pinyin: 'kǎo lǜ', english: 'to consider' },
+      { chinese: '期望', pinyin: 'qī wàng', english: 'expectations' },
+      { chinese: '发展', pinyin: 'fā zhǎn', english: 'development/growth' }
+    ],
+    dialogue: [
+      { character: 'HR Manager', chinese: '恭喜您通过了我们的面试。关于这份工作，您对薪酬待遇有什么期望？', pinyin: 'Gōngxǐ nín tōngguò le wǒmen de miànshì. Guānyú zhè fèn gōngzuò, nín duì xīnchóu dàiyù yǒu shénme qīwàng?', english: 'Congratulations on passing our interview. Regarding this job, what are your expectations for salary and benefits?', hindiPronunciation: 'गोंगशी निन तोंगगुओ ले वोमेन दे मियांशी. गुआनयु झे फेन गोंग्ज़ुओ, निन दुई शिनछोउ दाइयु योउ शेनमे छिवांग?' },
+      { character: 'You', chinese: '谢谢。考虑到我的工作经验和专业背景，我希望能达到每月两万元。', pinyin: 'Xièxie. Kǎolǜ dào wǒ de gōngzuò jīngyàn hé zhuānyè bèijǐng, wǒ xīwàng néng dádào měi yuè liǎng wàn yuán.', english: 'Thank you. Considering my work experience and professional background, I hope to reach 20,000 yuan per month.', hindiPronunciation: 'शिएशिए. खाओल्यु दाओ वो दे गोंग्ज़ुओ जिंगयान हे झुआनये बेइजिंग, वो शिंवांग नेंग दादाओ मेई युए लियांग वान युआन.' },
+      { character: 'HR Manager', chinese: '我们很认可您的能力，但两万略微超出了这个职位的预算。一万八可以吗？另外我们有丰厚的年终奖。', pinyin: 'Wǒmen hěn rènkě nín de nénglì, dàn liǎng wàn lüèwēi chāochū le zhège zhíwèi de yùsuàn. Yī wàn bā kěyǐ ma? Lìngwài wǒmen yǒu fēnghòu de niánzhōng jiǎng.', english: 'We highly recognize your abilities, but 20,000 slightly exceeds the budget for this position. Is 18,000 okay? Additionally, we have a generous year-end bonus.', hindiPronunciation: 'वोमेन हन रेनके निन दे नेंगली, दान लियांग वान ल्युएवेई छाओछू ले झेगे झीवेई दे युसुआन. यी वान बा केयी मा? लिंगवाई वोमेन योउ फेंगहोउ दे नियंजोंग जियांग.' },
+      { character: 'You', chinese: '我明白。除了薪水，我也非常看重公司未来的发展空间。', pinyin: 'Wǒ míngbái. Chúle xīnshuǐ, wǒ yě fēicháng kànzhòng gōngsī wèilái de fāzhǎn kōngjiān.', english: 'I understand. Besides salary, I also greatly value the company\'s future room for development.', hindiPronunciation: 'वो मिंगबाई. छूले शिनशुई, वो ये फेइचांग कानझोंग गोंगसी वेइलाई दे फाझान कोंगजियान.' },
+      { character: 'HR Manager', chinese: '我们公司正处于快速成长期，有很多晋升机会。您可以综合考虑一下。', pinyin: 'Wǒmen gōngsī zhèng chǔyú kuàisù chéngzhǎng qī, yǒu hěnduō jìnshēng jīhuì. Nín kěyǐ zōnghé kǎolǜ yíxià.', english: 'Our company is currently in a rapid growth period, there are many promotion opportunities. You can consider it comprehensively.', hindiPronunciation: 'वोमेन गोंगसी झेंग छुयु कुआईसू चेंगझांग छी, योउ हनदुओ जिनशेंग जिहुई. निन केयी जोंगहे खाओल्यु यीशिया.' },
+      { character: 'You', chinese: '好的，我会认真考虑的，明天给您答复。', pinyin: 'Hǎo de, wǒ huì rènzhēn kǎolǜ de, míngtiān gěi nín dáfù.', english: 'Okay, I will consider it seriously and give you a reply tomorrow.', hindiPronunciation: 'हाओ दे, वो हुई रेनझेन खाओल्यु दे, मिंगतियां गेई निन दाफू.' }
+    ],
+    exercises: [
+      {
+        type: 'sentence_building',
+        english: 'Besides salary, I also value future development.',
+        correctChinese: '除了薪水我也看重未来的发展',
+        blocks: [
+          { chinese: '除了', pinyin: 'chúle' },
+          { chinese: '薪水', pinyin: 'xīnshuǐ' },
+          { chinese: '看重', pinyin: 'kànzhòng' },
+          { chinese: '我也', pinyin: 'wǒ yě' },
+          { chinese: '发展', pinyin: 'fāzhǎn' },
+          { chinese: '未来的', pinyin: 'wèilái de' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'philosophical-debate',
+    title: 'Philosophical Debate',
+    description: 'Engage in a deep conversation about traditional Chinese philosophy, specifically Confucianism vs. Daoism.',
+    level: 6,
+    icon: '☯️',
+    aiPrompt: 'You are a Chinese philosophy professor. We are debating the merits of Confucianism (儒家) versus Daoism (道家). State your position and ask for my perspective using advanced HSK 6 vocabulary.',
+    vocabulary: [
+      { chinese: '顺其自然', pinyin: 'shùn qí zì rán', english: 'let nature take its course' },
+      { chinese: '秩序', pinyin: 'zhì xù', english: 'order' },
+      { chinese: '核心', pinyin: 'hé xīn', english: 'core' },
+      { chinese: '探讨', pinyin: 'tàn tǎo', english: 'to explore / investigate' }
+    ],
+    dialogue: [
+      { character: 'Professor', chinese: '儒家强调社会秩序和道德规范，而道家主张顺其自然。你更倾向于哪一种哲学观念？', pinyin: 'Rújiā qiángdiào shèhuì zhìxù hé dàodé guīfàn, ér Dàojiā zhǔzhāng shùnqízìrán. Nǐ gèng qīngxiàng yú nǎ yī zhǒng zhéxué guānniàn?', english: 'Confucianism emphasizes social order and moral norms, while Daoism advocates letting nature take its course. Which philosophical concept do you lean towards?', hindiPronunciation: 'रूजिया छियांगदियाओ शेहुई झिश्यू हे दाओदे गुईफान, अर दाओजिया झूझांग शुनछीजीरान. नी गेंग छिंगशियांग यु ना यी झोंग झेश्यू गुआन्नियन?' },
+      { character: 'You', chinese: '教授，我认为在现代社会的高压环境下，道家的"无为而治"能给人带来内心的平静。', pinyin: 'Jiàoshòu, wǒ rènwéi zài xiàndài shèhuì de gāoyā huánjìng xià, Dàojiā de "wúwéi ér zhì" néng gěi rén dàilái nèixīn de píngjìng.', english: 'Professor, I believe that in the high-pressure environment of modern society, Daoism\'s "governing by doing nothing" can bring inner peace to people.', hindiPronunciation: 'जियाओशोउ, वो रेनवेई ज़ाई शियानदाई शेहुई दे गाओया हुंआजिंग शिया, दाओजिया दे "वूवेई अर झी" नेंग गेई रेन दािलाई नेइशिन दे पिंगजिंग.' },
+      { character: 'Professor', chinese: '这确实是一个新颖的角度。但如果没有儒家的礼教约束，社会岂不是会陷入混乱？', pinyin: 'Zhè quèshí shì yī gè xīnyǐng de jiǎodù. Dàn rúguǒ méiyǒu Rújiā de lǐjiào yuēshù, shèhuì qǐbùshì huì xiànrù hùnluàn?', english: 'That is indeed a novel perspective. But without the constraints of Confucian ethical codes, wouldn\'t society fall into chaos?', hindiPronunciation: 'झे छुएशी शी यी गे शिनयिंग दे जियाओदू. दान रूगुओ मेइयोउ रूजिया दे लीजियाओ युएशू, शेहुई छीबूशी हुई शियानरू हुनलूआन?' },
+      { character: 'You', chinese: '不可否认，秩序是社会运转的基石。所以，理想的状态或许是"外儒内道"。', pinyin: 'Bùkěfǒurèn, zhìxù shì shèhuì yùnzhuǎn de jīshí. Suǒyǐ, lǐxiǎng de zhuàngtài huòxǔ shì "wài Rú nèi Dào".', english: 'It is undeniable that order is the cornerstone of societal operation. Therefore, the ideal state is perhaps "Confucian on the outside, Daoist on the inside."', hindiPronunciation: 'बूकेफोउरेन, झिश्यू शी शेहुई युनझुआन दे जीशी. सुओयी, लिशियांग दे झुआंगताई हुओश्यू शी "वाई रू नेइ दाओ".' },
+      { character: 'Professor', chinese: '精辟！在职场上遵循规则，在精神上保持超脱，这才是生存的大智慧啊。', pinyin: 'Jīngpì! Zài zhíchǎng shàng zūnxún guīzé, zài jīngshén shàng bǎochí chāotuō, zhè cái shì shēngcún de dà zhìhuì a.', english: 'Incisive! Following rules in the workplace while maintaining spiritual detachment, this is the great wisdom of survival.', hindiPronunciation: 'जिंगपी! ज़ाई झीछांग शांग ज़ुनशून गुईज़े, ज़ाई जिंगशेन शांग बाओची छाओतुओ, झे चाई शी शेंगचुन दे दा झिहुई आ.' }
+    ],
+    exercises: [
+      {
+        type: 'sentence_building',
+        english: 'I lean towards Daoism\'s "letting nature take its course".',
+        correctChinese: '我更倾向于道家的顺其自然',
+        blocks: [
+          { chinese: '道家的', pinyin: 'Dàojiā de' },
+          { chinese: '我', pinyin: 'wǒ' },
+          { chinese: '顺其自然', pinyin: 'shùnqízìrán' },
+          { chinese: '更倾向于', pinyin: 'gèng qīngxiàng yú' }
+        ]
+      }
+    ]
   }
 ];
 

@@ -47,6 +47,41 @@ export const thematicTopics: ThematicTopic[] = [
     icon: '✈️',
     description: 'Navigating the city and traveling around.',
     words: findWords(['去', '来', '回', '出租车', '飞机', '火车站', '学校', '医院', '商店', '饭店', '机场', '路', '远', '近', '左边', '右边', '旁边'])
+  },
+  {
+    id: 'health',
+    title: 'Health & Body',
+    icon: '🏥',
+    description: 'Words for body parts, feeling unwell, and visiting the doctor.',
+    words: findWords(['头', '眼睛', '耳朵', '手', '脚', '身体', '舒服', '生病', '医院', '药', '感冒', '疼'])
+  },
+  {
+    id: 'school',
+    title: 'School & Education',
+    icon: '🎓',
+    description: 'Vocabulary for classroom, studying, and academic life.',
+    words: findWords(['学校', '学生', '老师', '教室', '考试', '作业', '课', '书', '写', '读', '学习', '问题'])
+  },
+  {
+    id: 'weather',
+    title: 'Weather & Seasons',
+    icon: '🌦️',
+    description: 'Describing the weather and seasons throughout the year.',
+    words: findWords(['天气', '冷', '热', '下雨', '风', '春', '夏', '秋', '冬', '晴天', '阴天', '雪'])
+  },
+  {
+    id: 'work',
+    title: 'Work & Office',
+    icon: '💼',
+    description: 'Professional vocabulary for work, meetings, and the office.',
+    words: findWords(['工作', '公司', '上班', '下班', '开会', '经理', '同事', '办公室', '电脑', '忙', '休息', '钱'])
+  },
+  {
+    id: 'celebrations',
+    title: 'Celebrations & Holidays',
+    icon: '🎉',
+    description: 'Festive vocabulary for Chinese holidays and celebrations.',
+    words: findWords(['新年', '生日', '快乐', '礼物', '唱歌', '跳舞', '聚会', '红包', '春节', '中秋节'])
   }
 ];
 

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getUnitsByLevel, HSK_LEVELS } from '@/data';
+import { getUnitsByLevel, HSK_LEVELS, immersionVideos } from '@/data';
 import { notFound } from 'next/navigation';
 import './level.css';
 
@@ -26,6 +26,7 @@ export default async function LevelPage({ params }: Props) {
 
   const units = getUnitsByLevel(level);
   const levelMeta = HSK_LEVELS.find(l => l.level === level)!;
+  const levelVideos = immersionVideos.filter(v => v.level === level);
 
   return (
     <div className="level-page animate-fade-in">
@@ -51,12 +52,42 @@ export default async function LevelPage({ params }: Props) {
           <strong>HSK {level} Grammar Wiki</strong>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginTop: '0.5rem' }}>Master sentence structures</p>
         </Link>
-        <Link href={`/immersion?level=${level}`} className="btn btn-secondary" style={{ flex: 1, textAlign: 'center', padding: '1rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '8px' }}>
-          <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🎬</span>
-          <strong>Video Immersion</strong>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginTop: '0.5rem' }}>Watch native Chinese videos</p>
+        <Link href={`/situations?level=${level}`} className="btn btn-secondary" style={{ flex: 1, textAlign: 'center', padding: '1rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '8px' }}>
+          <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>💬</span>
+          <strong>Daily Life Situations</strong>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginTop: '0.5rem' }}>Practice real conversations</p>
         </Link>
       </div>
+
+      {levelVideos.length > 0 && (
+        <div className="level-videos-section" style={{ marginBottom: '3rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1rem' }}>
+            <h2 style={{ fontSize: '1.5rem', margin: 0 }}>🎬 Video Immersion</h2>
+            <Link href="/immersion" style={{ color: 'var(--accent-blue)', fontSize: '0.9rem', textDecoration: 'none' }}>View All →</Link>
+          </div>
+          <div className="video-scroll-container" style={{ display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '1rem', scrollSnapType: 'x mandatory' }}>
+            {levelVideos.map((video, idx) => (
+              <Link 
+                key={video.id} 
+                href={`/immersion/${video.id}`} 
+                className={`video-card animate-slide-up stagger-${Math.min(idx + 1, 6)}`}
+                style={{ minWidth: '300px', flex: '0 0 auto', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px', overflow: 'hidden', textDecoration: 'none', color: 'inherit', scrollSnapAlign: 'start', opacity: 0 } as React.CSSProperties}
+              >
+                <div className="video-thumbnail" style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: '#111' }}>
+                  <img src={video.thumbnailUrl} alt={video.title} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div className="play-overlay" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.3)', opacity: 0, transition: 'opacity 0.2s' }}>
+                    <span className="play-icon" style={{ fontSize: '3rem', color: 'white', filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))' }}>▶</span>
+                  </div>
+                </div>
+                <div style={{ padding: '1rem' }}>
+                  <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', color: 'var(--text-primary)', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{video.title}</h3>
+                  <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-tertiary)', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{video.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="units-grid">
         {units.map((unit, idx) => (

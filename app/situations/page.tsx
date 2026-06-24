@@ -73,8 +73,8 @@ export default function SituationsHub() {
                   </div>
 
                   <div className="card-actions" style={{ marginTop: '1.5rem', display: 'flex', gap: '0.5rem' }}>
-                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }} onClick={(e) => { e.preventDefault(); alert('Downloading PDF...'); }}>📄 PDF</button>
-                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }} onClick={(e) => { e.preventDefault(); alert('Downloading MP3...'); }}>🎵 MP3</button>
+                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }}>📄 PDF</button>
+                    <button className="btn btn-outline" style={{ flex: 1, padding: '0.4rem', fontSize: '0.85rem' }}>🎵 MP3</button>
                   </div>
                 </Link>
               ))}
