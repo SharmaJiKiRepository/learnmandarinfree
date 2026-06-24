@@ -4,11 +4,11 @@ export const immersionVideos: ImmersionVideo[] = [
   // --- HSK 1 ---
   {
     id: 'hsk1-greetings',
-    youtubeId: '4yvTsnB9vjE', 
+    youtubeId: 'K9_TWA_A_Js', 
     title: 'HSK 1 Listening Practice: Basic Greetings',
     description: 'Master HSK 1 essential vocabulary for greetings and introductions. Listen to slow, clear pronunciation from a native teacher.',
     level: 1,
-    thumbnailUrl: 'https://img.youtube.com/vi/4yvTsnB9vjE/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/K9_TWA_A_Js/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 3, chinese: '你好！欢迎学习中文。', pinyin: 'Nǐ hǎo! Huānyíng xuéxí zhōngwén.', english: 'Hello! Welcome to learning Chinese.', words: [{ chinese: '你好', pinyin: 'nǐ hǎo', meaning: 'hello', hskLevel: 1 }] },
       { startTime: 4, endTime: 7, chinese: '我叫王老师。', pinyin: 'Wǒ jiào Wáng lǎoshī.', english: 'My name is Teacher Wang.', words: [{ chinese: '我', pinyin: 'wǒ', meaning: 'I/me', hskLevel: 1 }, { chinese: '叫', pinyin: 'jiào', meaning: 'to be called', hskLevel: 1 }, { chinese: '老师', pinyin: 'lǎoshī', meaning: 'teacher', hskLevel: 1 }] },
@@ -18,11 +18,11 @@ export const immersionVideos: ImmersionVideo[] = [
   },
   {
     id: 'hsk1-numbers',
-    youtubeId: 'aSP6ZDckdV0',
+    youtubeId: 'V8hnajIOBr0',
     title: 'HSK 1 Listening Practice: Numbers & Time',
     description: 'Learn how to count and tell time in Mandarin using HSK 1 vocabulary.',
     level: 1,
-    thumbnailUrl: 'https://img.youtube.com/vi/aSP6ZDckdV0/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/V8hnajIOBr0/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 4, chinese: '现在几点？', pinyin: 'Xiànzài jǐ diǎn?', english: 'What time is it now?', words: [{ chinese: '现在', pinyin: 'xiànzài', meaning: 'now', hskLevel: 1 }, { chinese: '几', pinyin: 'jǐ', meaning: 'how many/which', hskLevel: 1 }, { chinese: '点', pinyin: 'diǎn', meaning: 'o\'clock', hskLevel: 1 }] },
       { startTime: 5, endTime: 9, chinese: '现在是上午十点。', pinyin: 'Xiànzài shì shàngwǔ shí diǎn.', english: 'It is 10:00 AM now.', words: [{ chinese: '上午', pinyin: 'shàngwǔ', meaning: 'morning', hskLevel: 1 }, { chinese: '十', pinyin: 'shí', meaning: 'ten', hskLevel: 1 }] },
@@ -34,11 +34,11 @@ export const immersionVideos: ImmersionVideo[] = [
   // --- HSK 2 ---
   {
     id: 'hsk2-restaurant',
-    youtubeId: 'aTiOxfqIaB8', 
+    youtubeId: 'YuAvUbdNlcs', 
     title: 'HSK 2 Dialogue: Ordering at a Restaurant',
     description: 'Practical HSK 2 listening exercise. A conversation between a customer and a waiter.',
     level: 2,
-    thumbnailUrl: 'https://img.youtube.com/vi/aTiOxfqIaB8/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/YuAvUbdNlcs/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 4, chinese: '服务员，请问有菜单吗？', pinyin: 'Fúwùyuán, qǐngwèn yǒu càidān ma?', english: 'Waiter, may I have a menu please?', words: [{ chinese: '服务员', pinyin: 'fúwùyuán', meaning: 'waiter', hskLevel: 2 }] },
       { startTime: 5, endTime: 9, chinese: '有的。你想吃什么？', pinyin: 'Yǒu de. Nǐ xiǎng chī shénme?', english: 'Yes. What would you like to eat?', words: [{ chinese: '想', pinyin: 'xiǎng', meaning: 'want to', hskLevel: 1 }] },
@@ -48,11 +48,11 @@ export const immersionVideos: ImmersionVideo[] = [
   },
   {
     id: 'hsk2-directions',
-    youtubeId: 'L2v1PKUqUJc', 
+    youtubeId: 'NNf14bxaNec', 
     title: 'HSK 2 Dialogue: Asking for Directions',
     description: 'Learn how to ask and give directions using HSK 2 grammar structures (离, 远, 近).',
     level: 2,
-    thumbnailUrl: 'https://img.youtube.com/vi/L2v1PKUqUJc/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/NNf14bxaNec/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 5, chinese: '请问，机场离这里远吗？', pinyin: 'Qǐngwèn, jīchǎng lí zhèlǐ yuǎn ma?', english: 'Excuse me, is the airport far from here?', words: [{ chinese: '离', pinyin: 'lí', meaning: 'away from', hskLevel: 2 }, { chinese: '远', pinyin: 'yuǎn', meaning: 'far', hskLevel: 2 }, { chinese: '机场', pinyin: 'jīchǎng', meaning: 'airport', hskLevel: 2 }] },
       { startTime: 6, endTime: 10, chinese: '不太远。你可以坐公共汽车去。', pinyin: 'Bù tài yuǎn. Nǐ kěyǐ zuò gōnggòng qìchē qù.', english: 'Not too far. You can take the bus to go.', words: [{ chinese: '公共汽车', pinyin: 'gōnggòng qìchē', meaning: 'bus', hskLevel: 2 }] },
@@ -64,11 +64,11 @@ export const immersionVideos: ImmersionVideo[] = [
   // --- HSK 3 ---
   {
     id: 'hsk3-hobbies',
-    youtubeId: 'Y2bezj9kI-o', 
+    youtubeId: '0kLsQzZYfCc', 
     title: 'HSK 3 Listening: Hobbies & Weekends',
     description: 'Listen to a natural HSK 3 conversation about what people do on their weekends.',
     level: 3,
-    thumbnailUrl: 'https://img.youtube.com/vi/Y2bezj9kI-o/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/0kLsQzZYfCc/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 5, chinese: '周末你一般喜欢做什么？', pinyin: 'Zhōumò nǐ yìbān xǐhuān zuò shénme?', english: 'What do you generally like to do on weekends?', words: [{ chinese: '周末', pinyin: 'zhōumò', meaning: 'weekend', hskLevel: 3 }, { chinese: '一般', pinyin: 'yìbān', meaning: 'generally', hskLevel: 3 }] },
       { startTime: 6, endTime: 10, chinese: '我经常去公园跑步，或者看电影。', pinyin: 'Wǒ jīngcháng qù gōngyuán pǎobù, huòzhě kàn diànyǐng.', english: 'I often go to the park to run, or watch movies.', words: [{ chinese: '经常', pinyin: 'jīngcháng', meaning: 'often', hskLevel: 3 }, { chinese: '或者', pinyin: 'huòzhě', meaning: 'or', hskLevel: 3 }] },
@@ -79,11 +79,11 @@ export const immersionVideos: ImmersionVideo[] = [
   // --- HSK 4 ---
   {
     id: 'hsk4-interview',
-    youtubeId: 'kvG7QF89Ddo', 
+    youtubeId: 'GVx9NDZROqo', 
     title: 'HSK 4 Advanced: Job Interview Preparation',
     description: 'HSK 4 listening test material. Focus on professional vocabulary and formal sentence structures.',
     level: 4,
-    thumbnailUrl: 'https://img.youtube.com/vi/kvG7QF89Ddo/hqdefault.jpg',
+    thumbnailUrl: 'https://img.youtube.com/vi/GVx9NDZROqo/hqdefault.jpg',
     transcript: [
       { startTime: 0, endTime: 6, chinese: '请你简单地介绍一下自己的工作经验。', pinyin: 'Qǐng nǐ jiǎndān de jièshào yīxià zìjǐ de gōngzuò jīngyàn.', english: 'Please briefly introduce your work experience.', words: [{ chinese: '简单', pinyin: 'jiǎndān', meaning: 'simple', hskLevel: 3 }, { chinese: '经验', pinyin: 'jīngyàn', meaning: 'experience', hskLevel: 4 }] },
       { startTime: 7, endTime: 13, chinese: '我曾在一家科技公司担任项目经理，主要负责市场研究。', pinyin: 'Wǒ céng zài yī jiā kējì gōngsī dānrèn xiàngmù jīnglǐ, zhǔyào fùzé shìchǎng yánjiū.', english: 'I previously worked at a tech company as a project manager, mainly responsible for market research.', words: [{ chinese: '科技', pinyin: 'kējì', meaning: 'science and tech', hskLevel: 4 }, { chinese: '负责', pinyin: 'fùzé', meaning: 'be responsible for', hskLevel: 4 }, { chinese: '研究', pinyin: 'yánjiū', meaning: 'research', hskLevel: 4 }] },
