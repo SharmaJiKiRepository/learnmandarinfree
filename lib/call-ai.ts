@@ -12,6 +12,8 @@ export interface CallAIOptions {
   geminiSchema?: any;
   temperature?: number;
   maxTokens?: number;
+  /** Skip Nemotron entirely and go straight to Gemini for speed-critical routes */
+  preferGemini?: boolean;
 }
 
 /**
@@ -20,9 +22,7 @@ export interface CallAIOptions {
  */
 export function extractJSON(raw: string): any {
   const cleaned = raw.replace(/```(?:json)?\s*/gi, '').replace(/```\s*/g, '').trim();
-  // Try direct parse first
   try { return JSON.parse(cleaned); } catch {}
-  // Try to find the first { ... } or [ ... ] block
   const match = cleaned.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
   if (match) {
     try { return JSON.parse(match[1]); } catch {}
@@ -31,34 +31,37 @@ export function extractJSON(raw: string): any {
 }
 
 /**
- * Calls Nemotron first; if it fails, seamlessly falls back to Gemini with key rotation.
+ * Calls Nemotron first; if it fails (or preferGemini is set), falls back to Gemini.
  * Returns { text, model } so the caller knows which engine responded.
  */
 export async function callAI(opts: CallAIOptions): Promise<{ text: string; model: string }> {
   const {
     systemPrompt, messages, nemotronOpts = {},
-    geminiSchema, temperature = 0.7, maxTokens = 2048
+    geminiSchema, temperature = 0.7, maxTokens = 2048,
+    preferGemini = false
   } = opts;
 
-  // Build Nemotron message array (system prompt + conversation)
-  const nemotronMessages: { role: 'system' | 'user' | 'assistant'; content: string }[] = [
-    { role: 'system', content: systemPrompt },
-    ...messages.map(m => ({
-      role: (m.role === 'model' ? 'assistant' : m.role) as 'user' | 'assistant',
-      content: m.content
-    }))
-  ];
+  // Speed-critical path: skip Nemotron entirely
+  if (!preferGemini) {
+    const nemotronMessages: { role: 'system' | 'user' | 'assistant'; content: string }[] = [
+      { role: 'system', content: systemPrompt },
+      ...messages.map(m => ({
+        role: (m.role === 'model' ? 'assistant' : m.role) as 'user' | 'assistant',
+        content: m.content
+      }))
+    ];
 
-  try {
-    const text = await generateNemotronResponse(nemotronMessages, {
-      temperature, max_tokens: maxTokens, ...nemotronOpts
-    });
-    return { text, model: 'nemotron' };
-  } catch (nemotronErr) {
-    console.warn('[callAI] Nemotron failed, cascading to Gemini:', nemotronErr);
+    try {
+      const text = await generateNemotronResponse(nemotronMessages, {
+        temperature, max_tokens: maxTokens, ...nemotronOpts
+      });
+      return { text, model: 'nemotron' };
+    } catch (nemotronErr) {
+      console.warn('[callAI] Nemotron failed, cascading to Gemini:', nemotronErr);
+    }
   }
 
-  // Gemini fallback — convert messages to Gemini format
+  // Gemini path — convert messages to Gemini format
   const geminiContents = messages.map(m => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }]

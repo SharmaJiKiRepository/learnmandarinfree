@@ -1,26 +1,46 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import './NavBar.css';
 
-const NAV_ITEMS = [
+const PRIMARY_NAV = [
   { href: '/pinyin', label: 'Pinyin', emoji: '🗣️' },
-  { href: '/hsk', label: 'HSK Courses', emoji: '📚' },
+  { href: '/hsk', label: 'HSK', emoji: '📚' },
   { href: '/tutor', label: 'AI Tutor', emoji: '🧠' },
   { href: '/review', label: 'Review', emoji: '🔄' },
   { href: '/learn', label: 'Flashcards', emoji: '🃏' },
+];
+
+const MORE_NAV = [
   { href: '/essay-grader', label: 'Essay Grader', emoji: '📝' },
   { href: '/reading', label: 'Reading', emoji: '📖' },
   { href: '/survival', label: 'Survival', emoji: '🧳' },
   { href: '/topics', label: 'Topics', emoji: '🎯' },
-  { href: '/situations', label: 'Situations', emoji: '🗣️' },
+  { href: '/situations', label: 'Situations', emoji: '💬' },
+  { href: '/immersion', label: 'Immersion', emoji: '🎬' },
+  { href: '/song', label: 'Song Mode', emoji: '🎵' },
 ];
+
+const ALL_NAV = [...PRIMARY_NAV, ...MORE_NAV];
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Close "More" dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setIsMoreOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const isMoreActive = MORE_NAV.some(item => pathname?.startsWith(item.href));
 
   return (
     <header className="navbar glass-panel">
@@ -29,23 +49,54 @@ export default function NavBar() {
           <span className="text-gradient">Learn</span>MandarinFree
         </Link>
 
+        {/* Desktop nav */}
         <nav className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
-          {NAV_ITEMS.map(item => (
+          {/* On mobile: show all items. On desktop: show primary only */}
+          {(isMenuOpen ? ALL_NAV : PRIMARY_NAV).map(item => (
             <Link
               key={item.href}
               href={item.href}
               className={`nav-item ${pathname?.startsWith(item.href) ? 'active' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => { setIsMenuOpen(false); setIsMoreOpen(false); }}
             >
               <span className="nav-emoji">{item.emoji}</span>
               {item.label}
             </Link>
           ))}
+
+          {/* "More" dropdown — desktop only */}
+          {!isMenuOpen && (
+            <div className="more-dropdown" ref={moreRef}>
+              <button
+                className={`nav-item more-trigger ${isMoreActive ? 'active' : ''}`}
+                onClick={() => setIsMoreOpen(!isMoreOpen)}
+              >
+                <span className="nav-emoji">⚡</span>
+                More
+                <span className={`more-chevron ${isMoreOpen ? 'open' : ''}`}>▾</span>
+              </button>
+              {isMoreOpen && (
+                <div className="more-menu animate-fade-in">
+                  {MORE_NAV.map(item => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`more-item ${pathname?.startsWith(item.href) ? 'active' : ''}`}
+                      onClick={() => setIsMoreOpen(false)}
+                    >
+                      <span className="nav-emoji">{item.emoji}</span>
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </nav>
-        
-        <div className="navbar-right-tools" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: 'auto', marginRight: '1rem' }}>
-          <div className="streak-counter" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255, 107, 0, 0.1)', padding: '0.4rem 0.8rem', borderRadius: 'var(--radius-full)', color: '#ff6b00', fontWeight: 'bold' }}>
-            <span style={{ fontSize: '1.2rem' }}>🔥</span> 3
+
+        <div className="navbar-right-tools">
+          <div className="streak-counter">
+            <span className="streak-flame">🔥</span> 3
           </div>
         </div>
 

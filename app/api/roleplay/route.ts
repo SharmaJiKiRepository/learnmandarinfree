@@ -31,7 +31,7 @@ CRITICAL: You MUST respond ONLY with a raw JSON object and nothing else. Do not 
         const { text, model } = await callAI({
             systemPrompt: enhancedSystem,
             messages,
-            nemotronOpts: { enable_thinking: false },
+            preferGemini: true, // Roleplay needs instant responses — Gemini Flash is 10x faster
             geminiSchema: ROLEPLAY_SCHEMA,
             temperature: 0.7,
             maxTokens: 1024
